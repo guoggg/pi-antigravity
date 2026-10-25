@@ -4,6 +4,10 @@ All notable changes to this project are documented in this file.
 
 ## [Unreleased]
 
+### Added
+
+- **Served model tracking:** Assistant messages record the backend `modelVersion` as `responseModel` and the backend `responseId`, so session files show which model actually served a request when it differs from the requested runtime model.
+
 ## [0.11.0] - 2026-10-16
 
 ### Added

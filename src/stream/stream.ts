@@ -1358,6 +1358,9 @@ export async function streamResponse(
     }
 
     const responseData = chunk.response || chunk;
+    // Record the model the gateway actually served (may differ from the requested runtime model).
+    if (responseData.modelVersion) output.responseModel = responseData.modelVersion;
+    if (responseData.responseId) output.responseId = responseData.responseId;
     const candidate = responseData.candidates?.[0];
 
     for (const part of candidate?.content?.parts || []) {
